@@ -1,5 +1,6 @@
-package demo.qa;
+package oldTest;
 
+import demo.qa.GlobalMetod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -9,14 +10,14 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class TabsTest extends BaseTest {
+public class TabsTest extends GlobalMetod {
     @BeforeMethod
     public void setUp() {
         driver.get("https://demoqa.com/browser-windows");
     }
 
     @Test
-    public void TabsTest() {
+    public void tabsTest() {
         String initialWindow = driver.getWindowHandle();
         driver.findElement(By.id("tabButton")).click();
 

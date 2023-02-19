@@ -1,5 +1,6 @@
-package demo.qa;
+package oldTest;
 
+import demo.qa.GlobalMetod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SliderTest extends BaseTest {
+public class SliderTest extends GlobalMetod {
     @BeforeMethod
     public void setUP() {
         driver.get("https://demoqa.com/slider");

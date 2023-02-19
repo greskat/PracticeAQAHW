@@ -1,12 +1,12 @@
-package demo.qa;
+package oldTest;
 
+import demo.qa.GlobalMetod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,17 +16,17 @@ import static org.openqa.selenium.Keys.*;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class FormTest extends BaseTest {
+public class FormTest extends GlobalMetod {
 
     @BeforeMethod
     public void setUp() {
-        driver.manage().window().setSize(new Dimension(600, 1200));
-        driver.get("https://demoqa.com/automation-practice-form");
+     driver.manage().window().setSize(new Dimension(600, 1200));
+     driver.get("https://demoqa.com/automation-practice-form");
     }
 
     @Test
     public void formTest() {
-        this.setFormData();
+
         this.subjects();
         this.putImages();
         this.calendar();
@@ -40,6 +40,10 @@ public class FormTest extends BaseTest {
 
     }
 
+    private void FillForm() {
+
+    }
+
     protected void setFormData() {
         driver.findElement(By.id("firstName")).sendKeys("Taras");
         driver.findElement(By.id("lastName")).sendKeys("Petrenko");
@@ -47,11 +51,10 @@ public class FormTest extends BaseTest {
         driver.findElement(By.xpath("//*[@id=\"genterWrapper\"]/div[2]/div[3]/label")).click();
         driver.findElement(By.id("userNumber")).sendKeys("2211111111");
         driver.findElement(By.id("dateOfBirthInput")).click();
-        driver.findElement(By.xpath("//div[@id='dateOfBirth']/div[2]/div[2]/div/div/div[2]/div/div[2]/div/select")).click();
+        driver.findElement(By.cssSelector(".react-datepicker__month-select")).click();
         driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[5]/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/div[1]/select/option[4]")).click();
         driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[5]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div[3]/div[6]")).click();
     }
-
     protected void subjects() {
         WebElement subjects = driver.findElement(By.id("subjectsInput"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", subjects);

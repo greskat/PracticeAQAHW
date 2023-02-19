@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeSuite;
 
 import static java.time.Duration.ofSeconds;
 
-public class BaseTest {
+public class GlobalMetod {
     protected WebDriver driver;
 
     @BeforeSuite
@@ -27,9 +27,9 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(ofSeconds(15));
     }
-
-    @AfterMethod(alwaysRun = true)
-    public void closeDriver() {
-        driver.quit();
+  @AfterMethod(alwaysRun = true)
+  public void closeDriver() {
+    driver.quit();
     }
+
 }
